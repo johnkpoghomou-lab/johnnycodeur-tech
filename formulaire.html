@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f97316">
+  <meta name="description" content="Formulaire de demande et d'accord de projet — JohnnyCodeur Tech.">
+  <title>Demande de projet | JohnnyCodeur Tech</title>
+  <style>
+    :root{--accent:#f59e0b;--accent2:#fbbf24;--navy:#07111f;--ink:#172033;--muted:#64748b;--line:#e2e8f0;--paper:#fff;--bg:#f5f7fb;--green:#166534}
+    *{box-sizing:border-box}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+    .hero{position:relative;background-color:var(--navy);background-image:linear-gradient(90deg,#07111ff2 0%,#07111fcf 58%,#07111f9c 100%),url('images/IMG_20260606_124845.jpg');background-position:center,center 28%;background-size:cover,cover;color:#fff;padding:28px 18px 128px;overflow:hidden}
+    .hero::after{content:"";position:absolute;inset:auto 0 0;height:150px;background:linear-gradient(transparent,var(--navy));pointer-events:none}
+    .hero-inner{position:relative;z-index:1}
+    .hero-inner,.wrap{max-width:1040px;margin:auto}
+    .brand{display:flex;align-items:center;gap:12px;font-weight:850;letter-spacing:.3px}
+    .logo{display:grid;place-items:center;width:46px;height:46px;border-radius:14px;background:var(--accent);color:var(--navy);font-weight:950;font-size:20px;box-shadow:0 7px 24px #f59e0b4d}
+    .brand small{display:block;color:#b9c5d5;font-size:10px;letter-spacing:2px;font-weight:700;margin-top:2px}
+    .hero-grid{display:grid;grid-template-columns:minmax(0,1.3fr) minmax(250px,.7fr);align-items:end;gap:50px;margin-top:62px}
+    .eyebrow{display:inline-flex;align-items:center;gap:8px;color:var(--accent2);font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase}
+    .eyebrow::before{content:"";width:28px;height:2px;background:var(--accent)}
+    .hero h1{font-size:clamp(34px,5vw,62px);line-height:1.05;max-width:700px;margin:16px 0 18px;letter-spacing:-1.8px}
+    .hero h1 span{color:var(--accent2)}
+    .hero p{max-width:640px;margin:0;color:#d8e0eb;font-size:16px}
+    .hero-card{padding:22px;border:1px solid #ffffff26;border-radius:20px;background:#ffffff12;backdrop-filter:blur(8px);box-shadow:0 18px 40px #00000026}
+    .hero-card strong{display:block;font-size:18px;margin-bottom:8px}
+    .hero-card p{font-size:13px;color:#b9c5d5}
+    .hero-card a{display:inline-flex;margin-top:14px;color:var(--navy);background:var(--accent);border-radius:9px;padding:10px 14px;font-size:13px;font-weight:800;text-decoration:none}
+    .chips{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+    .chip{border:1px solid #ffffff2e;border-radius:99px;padding:7px 12px;font-size:12px;color:#e7edf5;background:#ffffff0b}
+    .wrap{position:relative;z-index:1;margin-top:-55px;padding:0 16px 45px}
+    form{background:var(--paper);border:1px solid #e5eaf1;border-radius:24px;box-shadow:0 24px 70px #0f172a18;overflow:hidden}
+    .intro{padding:20px 30px;background:#fffbeb;border-bottom:1px solid #fde68a;color:#854d0e;font-size:14px}
+    .progress-wrap{padding:16px 26px 17px;background:#fff;border-bottom:1px solid #eee}
+    .progress-top{display:flex;justify-content:space-between;gap:16px;align-items:center;margin-bottom:9px;font-size:12px;font-weight:750;color:#525252}
+    .progress-track{height:7px;background:#e5e5e5;border-radius:99px;overflow:hidden}
+    .progress-bar{width:16.66%;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2));border-radius:inherit;transition:width .25s ease}
+    .section{padding:25px 26px;border-bottom:1px solid #eee}
+    .section:last-of-type{border-bottom:0}
+    .section-head{display:flex;align-items:flex-start;gap:12px;margin-bottom:20px}
+    .num{display:grid;place-items:center;flex:0 0 36px;height:36px;border-radius:11px;background:#fff7db;color:#a16207;font-weight:850}
+    h2{font-size:18px;margin:1px 0 3px}
+    .hint{font-size:13px;color:var(--muted);margin:0}
+    .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+    .field{min-width:0}
+    .full{grid-column:1/-1}
+    label,.label{display:block;font-weight:700;font-size:13px;margin-bottom:7px}
+    .required{color:#ea580c}
+    input:not([type=checkbox]):not([type=radio]),select,textarea{width:100%;font:inherit;font-size:14px;border:1px solid #d4d4d4;border-radius:10px;padding:12px 13px;background:#fff;color:#171717;outline:none;transition:border .15s,box-shadow .15s}
+    input:focus,select:focus,textarea:focus{border-color:var(--accent);box-shadow:0 0 0 3px #f59e0b26}
+    textarea{min-height:105px;resize:vertical}
+    .options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+    .option{display:flex;align-items:flex-start;gap:9px;border:1px solid #e5e5e5;border-radius:10px;padding:11px 12px;font-size:13px;cursor:pointer;background:#fff}
+    .option:has(input:checked){border-color:var(--accent2);background:#fffbeb}
+    input[type=checkbox],input[type=radio]{accent-color:var(--accent);margin-top:3px;flex:0 0 auto}
+    .subhead{font-size:13px;font-weight:800;margin:19px 0 9px}
+    .note{font-size:12px;color:#737373;margin-top:7px}
+    .terms{border:1px solid #e5e5e5;background:#fafafa;border-radius:12px;padding:15px;font-size:13px;color:#404040}
+    .terms ol{padding-left:19px;margin:8px 0}
+    .terms li{margin:7px 0}
+    .checkline{display:flex;gap:10px;align-items:flex-start;font-size:13px;margin-top:14px}
+    .actions{padding:24px 26px;background:#fafafa;display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+    button{border:0;border-radius:11px;padding:13px 18px;font:inherit;font-weight:800;cursor:pointer}
+    .submit{background:var(--accent);color:var(--navy);box-shadow:0 7px 18px #f59e0b3d}
+    .submit:hover{background:var(--accent2)}
+    .secondary{background:#eee;color:#262626}
+    .status{display:none;margin:0 26px 22px;padding:13px;border-radius:10px;font-size:14px}
+    .status.ok{display:block;background:#f0fdf4;color:var(--green);border:1px solid #bbf7d0}
+    .status.err{display:block;background:#fff7ed;color:#9a3412;border:1px solid #fed7aa}
+    footer{text-align:center;padding:0 18px 32px;color:#737373;font-size:12px}
+    footer strong{color:#404040}
+    @media(max-width:760px){.hero-grid{grid-template-columns:1fr;gap:28px;margin-top:48px}.hero-card{max-width:440px}.wrap{margin-top:-45px}}
+    @media(max-width:640px){.hero{padding:25px 18px 85px}.hero h1{margin-top:14px;letter-spacing:-1px}.hero-card{padding:18px}.grid,.options{grid-template-columns:1fr}.section{padding:22px 17px}.intro{padding:17px}.progress-wrap{padding:14px 17px}.actions{padding:20px 17px}.status{margin:0 17px 18px}.submit{width:100%}}
+  </style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brand"><div class="logo">JC</div><div>JOHNNYCODEUR TECH<small>WEB • MOBILE • SOLUTIONS NUMÉRIQUES</small></div></div>
+    <div class="hero-grid">
+      <div>
+        <div class="eyebrow">Construisons quelque chose d'utile</div>
+        <h1>Votre idée mérite une <span>présence digitale forte.</span></h1>
+        <p>Décrivez votre besoin en quelques minutes. Nous vous aidons à transformer votre idée en une solution claire, moderne et adaptée à vos objectifs.</p>
+        <div class="chips"><span class="chip">Sites web</span><span class="chip">Applications mobiles</span><span class="chip">Outils de gestion</span><span class="chip">Devis personnalisé</span></div>
+      </div>
+      <aside class="hero-card">
+        <strong>Un projet, une vraie direction.</strong>
+        <p>Chaque demande est étudiée pour cadrer les fonctionnalités, le budget et les prochaines étapes sans mauvaise surprise.</p>
+        <a href="#projectForm">Commencer ma demande ↓</a>
+      </aside>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+<form name="demandes-projets" method="POST" data-netlify="true" netlify-honeypot="bot-field" id="projectForm">
+  <input type="hidden" name="form-name" value="demandes-projets">
+  <p hidden><label>Ne remplissez pas ce champ : <input name="bot-field"></label></p>
+  <div class="intro"><strong>À savoir :</strong> ce formulaire est une demande de projet, pas un devis définitif. Le prix, le délai et les livrables seront confirmés par écrit avant le début des travaux.</div>
+  <div class="progress-wrap" aria-label="Progression du formulaire">
+    <div class="progress-top"><span id="progressLabel">Étape 1 sur 6</span><span id="progressPercent">17 %</span></div>
+    <div class="progress-track" id="progressTrack" role="progressbar" aria-valuemin="1" aria-valuemax="6" aria-valuenow="1" aria-label="Progression du formulaire"><div class="progress-bar" id="progressBar"></div></div>
+  </div>
+
+  <section class="section" data-step="1">
+    <div class="section-head"><span class="num">01</span><div><h2>Vos coordonnées</h2><p class="hint">Pour pouvoir vous contacter et suivre votre demande.</p></div></div>
+    <div class="grid">
+      <div class="field"><label for="clientName">Nom et prénom <span class="required">*</span></label><input id="clientName" name="Nom du client" required autocomplete="name" placeholder="Votre nom complet"></div>
+      <div class="field"><label for="company">Entreprise / organisation</label><input id="company" name="Entreprise" placeholder="Nom de l'entreprise, si applicable"></div>
+      <div class="field"><label for="phone">Téléphone / WhatsApp <span class="required">*</span></label><input id="phone" name="Téléphone du client" type="tel" required autocomplete="tel" placeholder="+224 ..."></div>
+      <div class="field"><label for="email">Adresse e-mail</label><input id="email" name="E-mail du client" type="email" autocomplete="email" placeholder="vous@exemple.com"></div>
+      <div class="field full"><label for="city">Ville / pays</label><input id="city" name="Ville" placeholder="Ex. : Conakry, Guinée"></div>
+    </div>
+  </section>
+
+  <section class="section" data-step="2">
+    <div class="section-head"><span class="num">02</span><div><h2>Votre projet</h2><p class="hint">Sélectionnez le type de solution dont vous avez besoin.</p></div></div>
+    <div class="options">
+      <label class="option"><input type="radio" name="Type de projet" value="Site vitrine" required> Site web vitrine / entreprise</label>
+      <label class="option"><input type="radio" name="Type de projet" value="Site e-commerce"> Site e-commerce / vente en ligne</label>
+      <label class="option"><input type="radio" name="Type de projet" value="Application Android"> Application mobile Android</label>
+      <label class="option"><input type="radio" name="Type de projet" value="Application Android et iOS"> Application Android et iOS</label>
+      <label class="option"><input type="radio" name="Type de projet" value="Application de gestion"> Application de gestion / entreprise</label>
+      <label class="option"><input type="radio" name="Type de projet" value="Autre solution numérique"> Autre solution numérique</label>
+    </div>
+    <div class="grid" style="margin-top:17px">
+      <div class="field full"><label for="objective">Objectif principal <span class="required">*</span></label><textarea id="objective" name="Objectif du projet" required placeholder="Quel problème votre site ou application doit-il résoudre ?"></textarea></div>
+      <div class="field full"><label for="description">Décrivez le fonctionnement souhaité <span class="required">*</span></label><textarea id="description" name="Description détaillée" required placeholder="Qui utilisera le produit ? Que pourra faire chaque utilisateur ?"></textarea></div>
+      <div class="field full"><label for="reference">Exemple ou lien d'un site / d'une application que vous aimez</label><input id="reference" name="Référence ou lien" type="url" placeholder="https://..."></div>
+    </div>
+  </section>
+
+  <section class="section" data-step="3">
+    <div class="section-head"><span class="num">03</span><div><h2>Fonctionnalités et design</h2><p class="hint">Cochez les fonctions souhaitées. Elles seront confirmées dans le devis.</p></div></div>
+    <div class="options">
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Comptes et connexion"> Comptes utilisateurs / connexion</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Administration"> Tableau de bord administrateur</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Produits et ventes"> Produits, clients et ventes</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Paiement en ligne"> Paiement en ligne</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Notifications"> Notifications</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Chat ou messagerie"> Chat / messagerie</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Réservation"> Réservation / prise de rendez-vous</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Carte et géolocalisation"> Carte / géolocalisation</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Images et fichiers"> Images / documents / fichiers</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Rapports et statistiques"> Rapports et statistiques</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Mode hors ligne"> Fonctionnement hors ligne</label>
+      <label class="option"><input type="checkbox" name="Fonctionnalités" value="Autres fonctionnalités"> Autres fonctionnalités à préciser</label>
+    </div>
+    <div class="grid" style="margin-top:17px">
+      <div class="field"><label for="design">Style visuel souhaité</label><select id="design" name="Style visuel"><option value="">Choisir une option</option><option>Moderne et professionnel</option><option>Simple et minimaliste</option><option>Élégant / haut de gamme</option><option>Coloré et dynamique</option><option>Je laisse le développeur proposer</option></select></div>
+      <div class="field"><label for="colors">Couleurs souhaitées</label><input id="colors" name="Couleurs souhaitées" placeholder="Ex. : bleu et blanc"></div>
+      <div class="field full"><label for="assets">Logo, textes et images déjà disponibles ?</label><select id="assets" name="Contenus disponibles"><option value="">Choisir une option</option><option>Oui, tout est disponible</option><option>Une partie seulement</option><option>Non, j'ai besoin d'aide</option></select></div>
+    </div>
+  </section>
+
+  <section class="section" data-step="4">
+    <div class="section-head"><span class="num">04</span><div><h2>Budget et calendrier</h2><p class="hint">Ces informations servent à préparer une proposition adaptée.</p></div></div>
+    <div class="grid">
+      <div class="field"><label for="budget">Budget envisagé</label><select id="budget" name="Budget envisagé"><option value="">Choisir une fourchette</option><option>Moins de 1 000 000 GNF</option><option>1 000 000 à 3 000 000 GNF</option><option>3 000 000 à 5 000 000 GNF</option><option>Plus de 5 000 000 GNF</option><option>À discuter</option></select></div>
+      <div class="field"><label for="deadline">Date limite souhaitée</label><input id="deadline" name="Date limite souhaitée" type="date"></div>
+      <div class="field full"><label for="extra">Autres précisions</label><textarea id="extra" name="Autres précisions" placeholder="Contraintes, langues, utilisateurs, services externes, etc."></textarea></div>
+    </div>
+  </section>
+
+  <section class="section" data-step="5">
+    <div class="section-head"><span class="num">05</span><div><h2>Devis et conditions de travail</h2><p class="hint">Les montants définitifs seront renseignés dans un devis séparé accepté par les deux parties.</p></div></div>
+    <div class="grid">
+      <div class="field"><label for="price">Prix total convenu (GNF), si déjà discuté</label><input id="price" name="Prix total discuté en GNF" type="number" min="0" placeholder="À confirmer dans le devis"></div>
+      <div class="field"><label for="payment">Modalité de paiement souhaitée</label><select id="payment" name="Modalité de paiement"><option value="">Choisir une option</option><option>50 % au démarrage / 50 % à la livraison</option><option>Paiement par étapes</option><option>Autre accord à définir</option></select></div>
+    </div>
+    <p class="subhead">Qui prendra en charge ces frais ?</p>
+    <div class="grid">
+      <div class="field"><label for="domain">Nom de domaine</label><select id="domain" name="Frais nom de domaine"><option>À la charge du client, sauf accord contraire</option><option>Inclus dans le devis</option><option>Non applicable</option><option>À discuter</option></select></div>
+      <div class="field"><label for="hosting">Hébergement / serveur</label><select id="hosting" name="Frais hébergement"><option>À la charge du client, sauf accord contraire</option><option>Inclus dans le devis</option><option>Non applicable</option><option>À discuter</option></select></div>
+      <div class="field"><label for="store">Publication sur les stores</label><select id="store" name="Publication sur les stores"><option>À préciser dans le devis</option><option>Incluse dans le devis</option><option>Non applicable</option></select></div>
+      <div class="field"><label for="maintenance">Maintenance après livraison</label><select id="maintenance" name="Maintenance après livraison"><option>Non incluse sauf accord écrit</option><option>Incluse selon le devis</option><option>À discuter</option></select></div>
+    </div>
+  </section>
+
+  <section class="section" data-step="6">
+    <div class="section-head"><span class="num">06</span><div><h2>Principes de l'accord</h2><p class="hint">À lire avant d'envoyer votre demande.</p></div></div>
+    <div class="terms">
+      <strong>Conditions préliminaires de collaboration</strong>
+      <ol>
+        <li><strong>Périmètre :</strong> le travail sera réalisé selon les fonctionnalités, livrables et exclusions indiqués dans le devis ou cahier des charges validé.</li>
+        <li><strong>Démarrage et paiement :</strong> le développement commence après acceptation du devis et versement de l'acompte convenu, sauf accord écrit différent.</li>
+        <li><strong>Modifications :</strong> toute fonctionnalité nouvelle ou modification importante hors périmètre pourra faire l'objet d'un supplément et d'un nouveau délai, après accord du client.</li>
+        <li><strong>Délais :</strong> le calendrier définitif sera confirmé après validation du périmètre. Les retards de contenus, de réponses ou de validation peuvent décaler la livraison.</li>
+        <li><strong>Tests et livraison :</strong> les modalités de recette, de correction des anomalies et de remise des accès/fichiers seront précisées dans le devis.</li>
+        <li><strong>Frais externes :</strong> domaine, hébergement, comptes développeur, API et services tiers ne sont inclus que s'ils sont mentionnés dans le devis.</li>
+        <li><strong>Code source et droits :</strong> la remise du code source et le transfert des droits d'utilisation seront définis dans l'accord écrit, en tenant compte du règlement du prix.</li>
+        <li><strong>Maintenance :</strong> les mises à jour et l'assistance après livraison ne sont incluses que si elles sont prévues dans le devis.</li>
+        <li><strong>Annulation :</strong> les conditions d'annulation, de remboursement et de règlement des litiges devront être définies par écrit conformément au droit applicable.</li>
+      </ol>
+      <p class="note">Ce formulaire recueille une demande et une reconnaissance des principes de travail. Il ne remplace pas un devis ou un contrat final adapté au projet et au droit applicable.</p>
+    </div>
+    <label class="checkline"><input type="checkbox" name="Acceptation des principes" value="Oui, j'ai lu et compris les principes" required><span>Je confirme avoir lu et compris ces principes. Je comprends que le prix, les livrables et le délai définitifs devront être validés dans un devis ou accord écrit. <span class="required">*</span></span></label>
+    <label class="checkline"><input type="checkbox" name="Autorisation de contact" value="Oui" required><span>J'accepte que JohnnyCodeur Tech me contacte au sujet de cette demande. <span class="required">*</span></span></label>
+  </section>
+
+  <div id="status" class="status" role="status" aria-live="polite"></div>
+  <div class="actions">
+    <button class="submit" type="submit" id="submitBtn">Envoyer ma demande ↗</button>
+    <button class="secondary" type="reset">Effacer le formulaire</button>
+  </div>
+</form>
+</main>
+<footer><strong>JOHNNYCODEUR TECH</strong><br>Des solutions numériques conçues autour de vos besoins.<br><span id="year"></span></footer>
+
+<script>
+  const form = document.getElementById('projectForm');
+  const statusBox = document.getElementById('status');
+  const submitBtn = document.getElementById('submitBtn');
+  const sections = Array.from(form.querySelectorAll('.section'));
+  const progressBar = document.getElementById('progressBar');
+  const progressLabel = document.getElementById('progressLabel');
+  const progressPercent = document.getElementById('progressPercent');
+  const progressTrack = document.getElementById('progressTrack');
+  document.getElementById('year').textContent = new Date().getFullYear();
+
+  function updateProgress(section) {
+    const step = Number(section.dataset.step);
+    const percentage = Math.round((step / sections.length) * 100);
+    progressBar.style.width = percentage + '%';
+    progressLabel.textContent = 'Étape ' + step + ' sur ' + sections.length;
+    progressPercent.textContent = percentage + ' %';
+    progressTrack.setAttribute('aria-valuenow', String(step));
+  }
+
+  sections.forEach(section => {
+    section.addEventListener('focusin', function() {
+      updateProgress(section);
+    });
+  });
+
+  function valueOf(name) {
+    const el = form.elements.namedItem(name);
+    if (!el) return '';
+    if (el instanceof RadioNodeList) {
+      const checked = Array.from(el).find(x => x.checked);
+      return checked ? checked.value : '';
+    }
+    return el.value || '';
+  }
+
+  function buildMessage() {
+    const checked = Array.from(form.querySelectorAll('input[name="Fonctionnalités"]:checked')).map(x => x.value);
+    const lines = [
+      'Bonjour JohnnyCodeur Tech, je viens d’envoyer une demande de projet via votre formulaire.',
+      '',
+      '*Client :* ' + valueOf('Nom du client'),
+      '*Entreprise :* ' + (valueOf('Entreprise') || 'Non précisée'),
+      '*Téléphone :* ' + valueOf('Téléphone du client'),
+      '*E-mail :* ' + (valueOf('E-mail du client') || 'Non précisé'),
+      '*Projet :* ' + valueOf('Type de projet'),
+      '*Objectif :* ' + valueOf('Objectif du projet'),
+      '*Description :* ' + valueOf('Description détaillée'),
+      '*Fonctionnalités :* ' + (checked.length ? checked.join(', ') : 'À définir'),
+      '*Budget :* ' + (valueOf('Budget envisagé') || 'À discuter'),
+      '*Date souhaitée :* ' + (valueOf('Date limite souhaitée') || 'À définir'),
+      '*Prix discuté :* ' + (valueOf('Prix total discuté en GNF') ? valueOf('Prix total discuté en GNF') + ' GNF' : 'À confirmer'),
+      '',
+      'Merci de me confirmer la prochaine étape.'
+    ];
+    return lines.join('\n');
+  }
+
+  form.addEventListener('submit', async function(e) {
+    e.preventDefault();
+    if (!form.reportValidity()) return;
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Envoi en cours…';
+    statusBox.className = 'status';
+    const data = new URLSearchParams(new FormData(form));
+    try {
+      const response = await fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: data.toString()
+      });
+      if (!response.ok) throw new Error('Envoi impossible');
+      statusBox.textContent = 'Votre demande a été envoyée. WhatsApp va s’ouvrir pour vous permettre d’envoyer le récapitulatif.';
+      statusBox.className = 'status ok';
+    } catch (err) {
+      statusBox.textContent = 'Le formulaire n’a pas pu être envoyé automatiquement. Vous pouvez quand même transmettre votre demande sur WhatsApp ; vérifiez aussi que le site est déployé sur Netlify.';
+      statusBox.className = 'status err';
+    }
+    const whatsappNumber = '224626661314';
+    const waUrl = 'https://wa.me/' + whatsappNumber + '?text=' + encodeURIComponent(buildMessage());
+    window.open(waUrl, '_blank', 'noopener');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Envoyer ma demande ↗';
+  });
+
+  form.addEventListener('reset', function() {
+    window.setTimeout(function() {
+      updateProgress(sections[0]);
+    }, 0);
+  });
+</script>
+</body>
+</html>
