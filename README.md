@@ -20,6 +20,8 @@ Importez uniquement ce dossier dans Netlify ou déployez ses fichiers. Le fichie
 
 Après avoir activé **Forms** dans Netlify, redéployez le site pour que Netlify détecte le formulaire `demandes-projets`. Ajoutez ensuite une notification e-mail dans **Forms / Form notifications** en sélectionnant ce formulaire.
 
+Le fichier `netlify.toml` ajoute également des en-têtes de sécurité pour limiter les scripts, les intégrations dans des iframes et l’accès aux fonctionnalités sensibles du navigateur.
+
 ## Personnalisation à faire
 - Les visuels de NoteColor, KoraBiz, 224 Challenge et du site Groupe Electro Pro sont intégrés dans la section portfolio.
 - Vérifier le numéro WhatsApp `224626661314`.
