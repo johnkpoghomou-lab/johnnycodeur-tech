@@ -16,7 +16,9 @@ Site vitrine responsive en français pour présenter les services et projets Joh
 4. Testez tous les boutons, les liens et le formulaire sur téléphone et ordinateur.
 
 ## Déploiement Netlify
-Importez uniquement ce dossier dans Netlify ou déployez ses fichiers. La page vitrine est `index.html` et le formulaire est accessible via `formulaire.html`. Pour que le formulaire Netlify fonctionne, vérifiez sa détection après le déploiement et configurez les notifications par e-mail dans les paramètres Netlify.
+Importez uniquement ce dossier dans Netlify ou déployez ses fichiers. Le fichier `netlify.toml` configure la publication depuis la racine du projet. La page vitrine est `index.html` et le formulaire est accessible via `formulaire.html`.
+
+Après avoir activé **Forms** dans Netlify, redéployez le site pour que Netlify détecte le formulaire `demandes-projets`. Ajoutez ensuite une notification e-mail dans **Forms / Form notifications** en sélectionnant ce formulaire.
 
 ## Personnalisation à faire
 - Les visuels de NoteColor, KoraBiz, 224 Challenge et du site Groupe Electro Pro sont intégrés dans la section portfolio.
